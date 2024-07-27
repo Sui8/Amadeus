@@ -28,7 +28,7 @@ GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 OWNER = int(os.getenv("OWNER"))
 ERROR_LOG = int(os.getenv("ERROR_LOG"))
 prefix = "m."  # Default Prefix
-Bot_Version = "1.2.2"
+Bot_Version = "1.2.4"
 
 # Gemini
 aimodel_name = "gemini-1.5-pro-latest"
@@ -211,7 +211,7 @@ async def on_ready():
       else:
         bot_members.append(member)
 
-  activity = discord.Activity(name="Amadeus has started", type=discord.ActivityType.playing)
+  activity = discord.CustomActivity(name="Amadeus has started")
   await client.change_presence(activity=activity)
 
   # 起動メッセージを専用サーバーに送信（チャンネルが存在しない場合、スルー）
@@ -229,7 +229,7 @@ async def on_ready():
   except:
     pass
 
-  activity = discord.Activity(name=f"Amadeus Ver{Bot_Version}", type=discord.ActivityType.playing)
+  activity = discord.CustomActivity(name=f"Amadeus Version {Bot_Version}")
   await client.change_presence(activity=activity)
 
 
